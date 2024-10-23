@@ -1,5 +1,5 @@
 import { type Config, ConfigType } from "./project.ts";
-import { type ProjectManifest } from "jsr:@subql/ai-app-framework@^1.0.0-3";
+import type { ProjectManifest } from "jsr:@subql/ai-app-framework@^1.0.0-3";
 import { Value } from "npm:@sinclair/typebox/value";
 
 /** Gets the host names of any urls in a record */
