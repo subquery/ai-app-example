@@ -9,7 +9,7 @@ import {
   UnclaimedDelegatorRewards,
 } from "./tools.ts";
 import { type Static, Type } from "npm:@sinclair/typebox";
-import type { Project, ProjectEntry } from "jsr:@subql/ai-app-framework@^1.0.0-3";
+import type { Project, ProjectEntry } from "jsr:@subql/ai-app-framework@^1.0.0-15";
 // import type { Project, ProjectEntry } from "../src/project/project.ts";
 
 export const ConfigType = Type.Object({
