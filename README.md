@@ -1,28 +1,57 @@
-## Subquery AI App Framework
+# SubQuery AI App Example
 
-This example repository creates an AI App for SubQuery's documentation and network app. It's a pefect example that shows off the key features of SubQuery's AI App Framework.
+## Start
 
-## Get Started
+- Read the [documentation](https://academy.subquery.network/ai) to see what
+  SubQuery AI can do
+- Install dependencies
+  - [deno](https://deno.com/)
+  - [Ollama](https://ollama.com)
+  - subql-ai cli -
+    `deno install -g -f --allow-env --allow-sys --allow-net --allow-import --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options --no-prompt -n subql-ai jsr:@subql/ai-app-framework/cli`
 
-You can get started with detailed documentation found [here](https://academy.subquery.network/ai/welcome.html).
+## Editing your app
 
-## Installing CLI
+- `manifest.ts` - This file defines key configuration options for your app.
+  Note: This is converted to JSON when publishing.
+- `project.ts` - This is where the code for your app lives. It registers any
+  tools and your system prompt.
 
-Install the latest:
+## Run your app
 
-`deno install -g -f --allow-env --allow-net --allow-import --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options -n subql-ai jsr:@subql/ai-app-framework/cli`
+There are 2 ways to run your app locally. Both require you having access to an
+[Ollama](https://ollama.com/) RPC, if you have a sufficiently powerful computer
+you can run Ollama locally.
 
-Install a specific version:
+### CLI
 
-`deno install -g -f --allow-env --allow-net --allow-import --allow-read --allow-write --allow-ffi --allow-run --unstable-worker-options -n subql-ai jsr:@subql/ai-app-framework@<version>/cli`
+To start your app: `subql-ai -p ./manifest.ts`
 
-`NOTE: These permissions can change, for the most upto date permissions see the top of ./src/index.ts`
+To chat with your app using a cli, in another terminal you can run
+`subql-ai repl`
 
-## Development
+### Docker Compose
 
-The framework is build using [Deno](https://deno.land), please make sure that is
-available in your environment.
+To run your project in docker there is a provided `docker-compose.yml` file.
+This will start your app as well as a simple chat web UI.
 
-### Tests
+To start everything: `docker compose up`.
 
-Running tests: `deno run test`
+To use the web UI, head to `http://localhost:8080` and create a new chat. From
+the list of models select `subql-ai` and begin chatting.
+
+## Publish your app
+
+Once your app is ready you can publish it to IPFS to distribute it. This will
+bundle up the code and any vector data and upload it to IPFS. Then the app can
+be run from IPFS
+
+`subql-ai publish -p ./manifest.ts`
+
+### Rebuilding the DB
+
+Because the docs change regularly you can rebuild the db with the following
+command. You just need to update the input path to a locally checked out version
+of https://github.com/subquery/documentation
+
+`subql-ai embed-mdx -i /path/to/subql/documentation -o db -t subql-docs --overwrite=true`
