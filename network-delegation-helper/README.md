@@ -1,6 +1,4 @@
-# SubQuery AI App Examples
-
-This is a repository of example SubQuery AI Apps
+# SubQuery AI App Example
 
 ## Start
 
