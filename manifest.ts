@@ -28,7 +28,9 @@ const project: ProjectManifest = {
   endpoints: extractConfigHostNames(defaultConfig),
   vectorStorage: {
     type: "lancedb",
-    path: "./db",
+    // path: "./db.tar.gz",
+    // You can also provide an HTTP url to an archive of the db
+    path: "https://github.com/subquery/subql-ai-app-example/raw/refs/heads/main/db.tar.gz",
   },
   config: JSON.parse(JSON.stringify(ConfigType)), // Convert to JSON Schema
   model: "llama3.1",
