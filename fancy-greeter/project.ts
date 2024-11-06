@@ -30,7 +30,7 @@ class ReverseNameTool extends FunctionTool {
 
   async call({ name }: { name: string }): Promise<string | null> {
     // Reverse the order of the input name
-    return name.split("").reverse().join("");
+    return await name.split("").reverse().join("");
   }
 }
 
