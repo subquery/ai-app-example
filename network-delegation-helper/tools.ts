@@ -5,7 +5,10 @@ import {
   formatUnits,
   toBigInt,
 } from "npm:ethers";
-import { FunctionTool, RagTool } from "jsr:@subql/ai-app-framework@^0.0.1"
+import {
+  FunctionTool,
+  RagTool,
+} from "jsr:@subql/ai-app-framework@^0.0.5";
 import { grahqlRequest } from "./utils.ts";
 
 type Amount = {

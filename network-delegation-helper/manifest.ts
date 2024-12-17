@@ -1,5 +1,5 @@
 import { type Config, ConfigType } from "./project.ts";
-import type { ProjectManifest } from "jsr:@subql/ai-app-framework@^0.0.1";
+import type { ProjectManifest } from "jsr:@subql/ai-app-framework@^0.0.5";
 import { Value } from "npm:@sinclair/typebox/value";
 
 /** Gets the host names of any urls in a record */
@@ -29,12 +29,15 @@ const project: ProjectManifest = {
   vectorStorage: {
     type: "lancedb",
     // path: "./db.tar.gz",
+    // path: "./db",
     // You can also provide an HTTP url to an archive of the db
     path: "https://github.com/subquery/subql-ai-app-example/raw/refs/heads/main/db.tar.gz",
   },
   config: JSON.parse(JSON.stringify(ConfigType)), // Convert to JSON Schema
   model: "llama3.1",
+  // model: "gpt-3.5-turbo",
   embeddingsModel: 'nomic-embed-text',
+  // embeddingsModel: "text-embedding-3-small",
   entry: "./project.ts",
 };
 
