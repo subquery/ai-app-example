@@ -9,12 +9,11 @@ import {
   UnclaimedDelegatorRewards,
 } from "./tools.ts";
 import { type Static, Type } from "npm:@sinclair/typebox";
-import type { Project, ProjectEntry } from "jsr:@subql/ai-app-framework@^0.0.1";
+import type { Project, ProjectEntry } from "jsr:@subql/ai-app-framework@^0.0.5";
 
 export const ConfigType = Type.Object({
   GRAPHQL_ENDPOINT: Type.String({
-    default:
-      "https://gateway.subquery.network/query/QmcoJLxSeBnGwtmtNmWFCRusXVTGjYWCK1LoujthZ2NyGP",
+    default: "https://api.subquery.network/sq/subquery/subquery-mainnet",
   }),
   BASE_RPC: Type.String({
     default: "https://gateway.subquery.network/rpc/base-full",

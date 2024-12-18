@@ -1,8 +1,8 @@
 import { type Static, Type } from "npm:@sinclair/typebox";
 import {
+  FunctionTool,
   type Project,
   type ProjectEntry,
-  FunctionTool,
 } from "jsr:@subql/ai-app-framework";
 
 export const ConfigType = Type.Object({
@@ -37,7 +37,8 @@ class ReverseNameTool extends FunctionTool {
 const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
   return {
     tools: [new ReverseNameTool()],
-    systemPrompt: `You are an agent designed to greet a user in the strangest way possible.
+    systemPrompt:
+      `You are an agent designed to greet a user in the strangest way possible.
     Always ask for the users name first before you greet them, once you have this information, you can greet them in a unique way.
     Your greeting should be weird, perhaps a pun or dad joke with their name. Please be funny, interesting, weird, and/or unique.
     ALWAYS REVERSE THEIR NAME USING THE REVERSENAMETOOL BEFORE GREETING THEM!
