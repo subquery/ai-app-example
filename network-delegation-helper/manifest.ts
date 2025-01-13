@@ -16,8 +16,8 @@ export function extractConfigHostNames(
       }
     })
     .filter((v) => !!v) as string[]; // Cast should be unnecessary with latest TS versions
-
-  // Make unique
+  
+    // Make unique
   return [...new Set(hosts)];
 }
 
@@ -26,18 +26,8 @@ const defaultConfig = Value.Default(ConfigType, {} as Config) as Config;
 const project: ProjectManifest = {
   specVersion: "0.0.1",
   endpoints: extractConfigHostNames(defaultConfig),
-  vectorStorage: {
-    type: "lancedb",
-    // path: "./db.tar.gz",
-    // path: "./db",
-    // You can also provide an HTTP url to an archive of the db
-    path: "https://github.com/subquery/subql-ai-app-example/raw/refs/heads/main/db.tar.gz",
-  },
   config: JSON.parse(JSON.stringify(ConfigType)), // Convert to JSON Schema
   model: "llama3.1",
-  // model: "gpt-3.5-turbo",
-  embeddingsModel: 'nomic-embed-text',
-  // embeddingsModel: "text-embedding-3-small",
   entry: "./project.ts",
 };
 
