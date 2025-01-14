@@ -1,11 +1,5 @@
-import { type Static, Type } from "npm:@sinclair/typebox";
 import type { Project, ProjectEntry } from "jsr:@subql/ai-app-framework@^0.0.5";
 import { RagTool } from "jsr:@subql/ai-app-framework@^0.0.5";
-
-export const ConfigType = Type.Object({
-});
-
-export type Config = Static<typeof ConfigType>;
 
 const PROMPT = `
 You are designed to assist with answering questions about SubQuery, using its documentation as a reference.
