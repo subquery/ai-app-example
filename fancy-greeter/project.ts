@@ -1,18 +1,8 @@
-import { type Static, Type } from "npm:@sinclair/typebox";
 import {
   FunctionTool,
   type Project,
   type ProjectEntry,
 } from "jsr:@subql/ai-app-framework";
-
-export const ConfigType = Type.Object({
-  EXAMPLE_ENDPOINT: Type.String({
-    default: "https://example.com",
-    description: "This is an example config option",
-  }),
-});
-
-export type Config = Static<typeof ConfigType>;
 
 class ReverseNameTool extends FunctionTool {
   description = `This tool reverses the users name.`;
@@ -34,7 +24,7 @@ class ReverseNameTool extends FunctionTool {
 }
 
 // deno-lint-ignore require-await
-const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
+const entrypoint: ProjectEntry = async (): Promise<Project> => {
   return {
     tools: [new ReverseNameTool()],
     systemPrompt:
