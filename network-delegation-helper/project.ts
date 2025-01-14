@@ -3,7 +3,6 @@ import {
   BetterIndexerApy,
   CurrentDelegatorApy,
   DelegatedIndexers,
-  SubqueryDocs,
   TokenBalance,
   TotalDelegation,
   UnclaimedDelegatorRewards,
@@ -48,27 +47,10 @@ const entrypoint: ProjectEntry = async (config: Config): Promise<Project> => {
       new TokenBalance(
         new JsonRpcProvider(config.BASE_RPC),
         config.BASE_SQT_ADDR,
-      ),
-      new SubqueryDocs(),
+      )
     ],
     systemPrompt: PROMPT,
   };
 };
 
 export default entrypoint;
-
-// Some example messages to ask with this set of tools
-const _messages = [
-  // Delegation
-  "My address is 0x108A496cDC32DA84e4D5905bb02ED695BC1024cd, use this for any further prompts. What is my delegation?",
-  "Who am i delegating to?",
-  "What is my balance?",
-  "Do i have any unclaimed rewards?",
-  "What is my current APY?",
-  "Are there better indexers to delegate to?",
-  // Docs knowledge
-  "What networks does subquery support?",
-  "How do i define a one-to-many relationship in a subquery project graphql schema?",
-  "Does subquery support the solana blockchain?",
-  "How do i swap ksqt for sqt?",
-];

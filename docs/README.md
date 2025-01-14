@@ -30,15 +30,13 @@ To start your app: `subql-ai -p ./manifest.ts`
 To chat with your app using a cli, in another terminal you can run
 `subql-ai repl`
 
-Example prompts:
+Examples prompts:
 
 ```
-"My address is ___, use this for any further prompts. What is my delegation?",
-"Who am i delegating to?",
-"What is my balance?",
-"Do i have any unclaimed rewards?",
-"What is my current APY?",
-"Are there better indexers to delegate to?"
+"What networks does subquery support?",
+"How do i define a one-to-many relationship in a subquery project graphql schema?",
+"Does subquery support the solana blockchain?",
+"How do i swap ksqt for sqt?",
 ```
 
 ### Docker Compose
@@ -58,3 +56,11 @@ bundle up the code and any vector data and upload it to IPFS. Then the app can
 be run from IPFS
 
 `subql-ai publish -p ./manifest.ts`
+
+### Rebuilding the DB
+
+Because the docs change regularly you can rebuild the db with the following
+command. You just need to update the input path to a locally checked out version
+of https://github.com/subquery/documentation
+
+`subql-ai embed-mdx -i /path/to/subql/documentation -o db -t subql-docs --overwrite=true`
